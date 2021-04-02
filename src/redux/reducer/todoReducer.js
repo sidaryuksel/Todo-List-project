@@ -21,7 +21,7 @@ export function todos(state = [], action) {
         case todoConstants.TODOSEARCH:
                 newState = state.filter(todo => {
                 if (action.payload === "") return todo;
-                else if (todo.text.toLowerCase().includes(action.payload.toLowerCase())) return todo;
+                else if (todo.title.toLowerCase().includes(action.payload.toLowerCase())) return todo;
                 return "";});
                 console.log("reducer: ", newState);
             return newState;

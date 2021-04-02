@@ -16,7 +16,6 @@ class TodoList extends Component {
     handleClick = (e) => {
         this.setState({
             length: this.props.todos.length
-
         })
         return (
             <div>
@@ -33,6 +32,7 @@ class TodoList extends Component {
                         <Todo value={todo} key={todo.id} id={todo.id} />
                     ))
                     }
+
                 </ul>
             </div>
         )
