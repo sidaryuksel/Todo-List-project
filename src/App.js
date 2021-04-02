@@ -6,7 +6,7 @@ function App() {
   return (
     <div >
       <header>
-        <h1>Sidar Yuksel project</h1>
+        <h5>Sidar Yuksel project</h5>
         </header>
         <header>
         <h2>Todo List</h2>

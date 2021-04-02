@@ -10,12 +10,12 @@ body {
   min-height: 100vh;
 }
 header {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 header,
 form {
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,16 +78,13 @@ form button:hover {
 .complete-btn {
   background: rgb(11, 212, 162);
 }
+
 .todo-item {
   color: black;
   font-size: 1.25rem;
   padding: 0rem 0.5rem;
 }
 
-.todo-search {
-  margin-left: 1rem;
-  width: 10rem;
-}
 .fa-trash,
 .fa-check {
   pointer-events: none;
@@ -143,4 +140,18 @@ select {
 .select:hover::after {
   background: #d72631;
   transform: scale(0.75);
+}
+
+.search {
+  margin-left: 1rem;
+  width: 10rem;
+}
+
+.list-btn {
+  background: rgb(11, 212, 162);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
 }
