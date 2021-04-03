@@ -65,7 +65,7 @@ function addTodoItem(todo) {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(todo)
-        })
+        }).then(response => response.json())
             .then(item => {
                 dispatch(addTodoItemSuccess(item));
             })
@@ -75,14 +75,17 @@ function addTodoItem(todo) {
 
 function updateTodoItem(todoUpdatedItem) {
     console.log("updatetodo: ", todoUpdatedItem)
+    debugger;
+
     return function (dispatch) {
         return fetch(URL + todoUpdatedItem.id, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(todoUpdatedItem)
-        })
+        }).then(response => response.json())
             .then(item => {
                 dispatch(updateTodoItemSuccess(item));
+                dispatch(getTodoList(item));
             })
             .catch(handleError)
     }
@@ -95,9 +98,10 @@ function deleteTodoItem(todo) {
             method: 'DELETE',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(todo)
-        })
+        }).then(response => response.json())
             .then(item => {
                 dispatch(deleteTodoItemSuccess(item));
+                dispatch(getTodoList());
             })
             .catch(handleError)
     }
@@ -112,7 +116,7 @@ function completeTodoItem(todo) {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(todoCompleted)
-        })
+        }).then(response => response.json())
             .then(item => {
                 dispatch(completeTodoItemSuccess(item));
             })

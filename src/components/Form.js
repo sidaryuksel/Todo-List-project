@@ -34,7 +34,7 @@ class Form extends Component {
             createdDate: todayDate,
             priority: priority,
         }
-        console.log("todoItem", todoItemOb.priority)
+        console.log("form priority", todoItemOb.priority)
         this.setState({
             todoItem: {
                 title: todoItemOb.title,
@@ -60,7 +60,7 @@ class Form extends Component {
         return (
             <div>
                 <form>
-                    <input placeholder="Title..." name="title" className="todo-input" onChange={this.handleInputText} />
+                    <input autoFocus placeholder="Title..." name="title" className="todo-input" onChange={this.handleInputText} />
                     <input placeholder="Message..." name="message" className="todo-input-msg" onChange={this.handleInputText} />
                     <div className="select">
                         <select name="priority" className="filter-todo" onChange={this.handleInputText}>
@@ -89,7 +89,6 @@ const stateToProps = (state) => ({
 })
 
 const dispatchToProps = {
-    getTodoList: todoActions.getTodoList,
     addTodoItem: todoActions.addTodoItem,
 }
 

@@ -7,10 +7,8 @@ class Todo extends Component {
 
     handleDelete = (e) => {
         e.preventDefault();
-
         console.log("targetvalue: ", this.props.id);
         this.props.deleteItem(this.props.value);
-        this.props.getTodoList();
     }
 
     handleComplete = (e) => {

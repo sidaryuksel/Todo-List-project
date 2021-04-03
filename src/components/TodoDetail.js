@@ -1,69 +1,57 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
 import { todoActions } from '../redux/action/todoAction';
-import { todoItem } from '../redux/reducer/todoReducer';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class TodoDetail extends Component {
     constructor(props) {
         super(props);
+        const detailItem = this.props.todos.find(item => item.id === this.props.detail);
+        console.log("detailItem", detailItem)
+
         this.state = {
             todoItem: {
-                title: "",
-                message: "",
+                title: detailItem != null ? detailItem.title : "",
+                message: detailItem != null ? detailItem.message : "",
+                priority: detailItem != null ? detailItem.priority : "",
                 modifiedDate: "",
-                priority: "",
             },
         }
 
-    }
-
-    componentDidMount() {
-        //get information by id which todo item has been sellected
-        const detail = this.props.todos.find(item => item.id === this.props.detail);
-        this.setState({
-            todoItem: detail
-        })
+        console.log("detail consturctor", this.state)
     }
 
     handleInputText = (e) => {
         console.log("todo detay handle", e.target);
-        let title, message, priority;
         //find which value will be changed
-        if (e.target.name === "title") {
-                    title = e.target.value;
-        } else if (e.target.name === "message") {
-                    message = e.target.value;
-        } else if (e.target.name === "priority") {
-            console.log("priori", e.target.value)
-                    priority = e.target.value
-        }
+        const titleUp = e.target.name === "title" ? e.target.value : this.state.todoItem.title;
+        const messageUp = e.target.name === "message" ? e.target.value : this.state.todoItem.message;
+        const priorityUp = e.target.name === "priority" ? e.target.value : this.state.todoItem.priority;
+
         var date = new Date();
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
         this.setState({
             todoItem: {
-                title: title,
-                message: message,
-                priority: priority,
+                title: titleUp,
+                message: messageUp,
                 modifiedDate: todayDate,
+                priority: priorityUp,
             }
         });
         console.log("heyo", this.state);
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
         const todoUpdateItem = this.state.todoItem;
         console.log("update item", todoUpdateItem);
-        this.props.todoUpdateItem(todoUpdateItem)
+        debugger;
+        this.props.updateTodoItem(todoUpdateItem)
+
+
     }
 
-    handleSubmitBack = (e) => {
-        this.props.history.push('/');
-    }
     render() {
-        const { title, message, priority } = this.state.todoItem != null ? this.state.todoItem : "";
+        const { title, message } = this.state.todoItem != null ? this.state.todoItem : "";
         console.log("title", title);
 
         return (
@@ -84,7 +72,7 @@ class TodoDetail extends Component {
                     <h5 className="message">Priority</h5>
                 </header>
                 <form>
-                    <select name="priority" className="filter-todo" onChange={this.handleChange} value={priority}>
+                    <select name="priority" className="filter-todo" onChange={this.handleInputText}>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
@@ -107,7 +95,7 @@ const stateToProps = (state) => ({
 })
 
 const dispatchToProps = {
-    todoUpdateItem: todoActions.todoUpdateItem
+    updateTodoItem: todoActions.updateTodoItem
 }
 
-export default connect(stateToProps, dispatchToProps)(withRouter(TodoDetail))
+export default connect(stateToProps, dispatchToProps)(TodoDetail)

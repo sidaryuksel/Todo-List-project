@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { todoActions } from '../redux/action/todoAction';
 import Todo from './Todo';
-import Form from './Form'
 
 class TodoList extends Component {
     constructor(props) {

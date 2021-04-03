@@ -1,24 +1,8 @@
 {
   "todos": [
     {
-      "title": "Maecenas nec nibh vestibulum, consequat quam a",
-      "completed": false,
-      "id": 24,
-      "message": "Maecenas nec nibh vestibulum, consequat quam a, fringilla nibh. Nulla feugiat erat vehicula justo dapibus finibus. In id consequat augue. Nullam consectetur malesuada massa sit amet suscipit. Sed et faucibus nulla. Nulla quis metus augue. Fusce varius, neque et tristique varius, ipsum risus commodo est, id volutpat dolor quam ac nunc. Proin ut sollicitudin urna. Curabitur interdum, libero at gravida lobortis, sem lectus egestas diam, et feugiat sem massa vitae ligula. Curabitur dictum tempor metus. Nunc id elit risus. Aliquam eget urna ut quam aliquam dignissim eget eu nisi. Sed euismod dolor quis ullamcorper mattis. Donec aliquet est et aliquet posuere. Sed a sollicitudin nisl.",
-      "createdDate": "",
-      "priority": "Medium"
-    },
-    {
-      "title": "Aenean porta nisi nec mauris sagittis varius",
-      "completed": false,
-      "id": 25,
-      "message": "Aenean porta nisi nec mauris sagittis varius. Suspendisse tempus, lorem lobortis pulvinar elementum, turpis neque auctor lectus, sit amet luctus libero erat a metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer vel turpis at mauris tincidunt posuere id ut enim. Nunc dolor felis, blandit ut dignissim id, porttitor posuere orci. Suspendisse maximus lorem id mauris rutrum fringilla. Praesent nec neque congue, aliquam sapien id, rhoncus ipsum. Cras ut convallis arcu.",
-      "createdDate": "",
-      "priority": "High"
-    },
-    {
       "title": "Sed mattis nibh non leo egestas finibus",
-      "completed": false,
+      "completed": true,
       "id": 26,
       "message": "Sed mattis nibh non leo egestas finibus. Etiam eleifend aliquet viverra. Proin elementum est sed cursus mattis. Nam sit amet felis nisl. Sed efficitur imperdiet lorem eget finibus. Integer tristique sapien et ipsum mattis, commodo feugiat lorem hendrerit. Etiam erat nulla, scelerisque nec viverra sit amet, dapibus in diam. Nunc sit amet felis vitae est iaculis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec dictum orci sit amet placerat lobortis. Vestibulum arcu nulla, fringilla ut ullamcorper eu, blandit id erat. Vivamus magna velit, eleifend ac mi id, feugiat ornare orci.",
       "createdDate": "",
@@ -30,6 +14,27 @@
       "createdDate": "3/6/2021",
       "priority": "medium",
       "id": 27
+    },
+    {
+      "title": "şlkklkkj",
+      "message": "dfghfdhfg",
+      "createdDate": "3/0/2021",
+      "priority": "low",
+      "id": 28
+    },
+    {
+      "title": "şlkklkkj",
+      "message": "şlkjşjşkljl",
+      "createdDate": "3/0/2021",
+      "priority": "medium",
+      "id": 29
+    },
+    {
+      "title": "şlkklkkj",
+      "message": "şlkjşjşkljl",
+      "createdDate": "3/0/2021",
+      "priority": "medium",
+      "id": 30
     }
   ]
 }
