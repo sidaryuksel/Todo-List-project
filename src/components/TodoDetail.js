@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { todoActions } from '../redux/action/todoAction';
+import { todoItem } from '../redux/reducer/todoReducer';
 
 class TodoDetail extends Component {
     constructor(props) {
@@ -9,6 +12,7 @@ class TodoDetail extends Component {
                 title: "",
                 message: "",
                 modifiedDate: "",
+                priority: "",
             },
         }
 
@@ -23,9 +27,9 @@ class TodoDetail extends Component {
     }
 
     handleInputText = (e) => {
-        console.log("todo detay handle",e.target.name);
+        console.log("todo detay handle", e.target.name);
         //find which value will be changed
-        if (e.target.name === "title") {
+        /*if (e.target.name === "title") {
             this.setState({
                 todoItem: {
                     title: e.target.value
@@ -38,19 +42,27 @@ class TodoDetail extends Component {
                 }
             })
         } else if (e.target.name === "priority") {
+            console.log("priori", e.target.value)
             this.setState({
                 todoItem: {
                     priority: e.target.value
                 }
             })
-        }
+        }*/
+        const {name, value} = e.target;
+        this.setState({
+            todoItem: {
+                [name]: value
+            }
+        })
         var date = new Date();
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
         this.setState({
             todoItem: {
-                modifiedDate: todayDate}
-            });
-        console.log("heyo",this.props);
+                modifiedDate: todayDate
+            }
+        });
+        console.log("heyo", this.state);
     }
 
     handleSubmit = (e) => {
@@ -59,12 +71,12 @@ class TodoDetail extends Component {
         console.log("update item", todoUpdateItem);
         this.props.todoUpdateItem(todoUpdateItem)
     }
-    
-    handleSubmitBack = () => {
+
+    handleSubmitBack = (e) => {
         this.props.history.push('/');
     }
     render() {
-        const { title, message, createdDate } = this.state.todoItem != null ? this.state.todoItem : "";
+        const { title, message, priority } = this.state.todoItem != null ? this.state.todoItem : "";
         console.log("title", title);
 
         return (
@@ -85,12 +97,12 @@ class TodoDetail extends Component {
                     <h5 className="message">Priority</h5>
                 </header>
                 <form>
-                        <select name="priority" className="filter-todo" onChange={this.handleChange}>
-                            <option value="high">High</option>
-                            <option value="medium">Medium</option>
-                            <option value="low">Low</option>
-                        </select>
-                        </form>
+                    <select name="priority" className="filter-todo" onChange={this.handleChange} value={priority}>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </form>
                 <form>
                     <button className="todo-button" onSubmit={this.handleSubmit}>Update</button>
                 </form>
@@ -98,7 +110,6 @@ class TodoDetail extends Component {
                     <button className="todo-button" onSubmit={this.handleSubmitBack}>Back to form</button>
                 </form>
             </div>
-
         )
     }
 }
@@ -109,7 +120,7 @@ const stateToProps = (state) => ({
 })
 
 const dispatchToProps = {
-
+    todoUpdateItem: todoActions.todoUpdateItem
 }
 
-export default connect(stateToProps, dispatchToProps)(TodoDetail)
+export default connect(stateToProps, dispatchToProps)(withRouter(TodoDetail))
