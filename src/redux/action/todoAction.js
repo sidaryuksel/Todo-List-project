@@ -5,6 +5,7 @@ export const todoConstants = {
     TODOCOMPLETE: 'TODO_COMPLETE',
     TODOSEARCH: 'TODO_SEARCH',
     TODODETAIL: 'TODO_DETAIL',
+    TODOUPDATE: 'TODO_UPDATE',
 }
 
 export const todoActions = {
@@ -14,6 +15,7 @@ export const todoActions = {
     completeTodoItem,
     searchTodoList,
     todoDetail,
+    updateTodoItem,
 }
 
 const URL = "http://localhost:4000/todos/";
@@ -24,6 +26,10 @@ function getTodoListSuccess(list) {
 
 function addTodoItemSuccess(item) {
     return { type: todoConstants.TODOADD, payload: item }
+}
+
+function updateTodoItemSuccess(item) {
+    return { type: todoConstants.TODOUPDATE, payload: item }
 }
 
 function deleteTodoItemSuccess(item) {
@@ -62,6 +68,21 @@ function addTodoItem(todo) {
         })
             .then(item => {
                 dispatch(addTodoItemSuccess(item));
+            })
+            .catch(handleError)
+    }
+}
+
+function updateTodoItem(todoUpdatedItem) {
+    console.log("updatetodo: ", todoUpdatedItem)
+    return function (dispatch) {
+        return fetch(URL + todoUpdatedItem.id, {
+            method: 'PUT',
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(todoUpdatedItem)
+        })
+            .then(item => {
+                dispatch(updateTodoItemSuccess(item));
             })
             .catch(handleError)
     }

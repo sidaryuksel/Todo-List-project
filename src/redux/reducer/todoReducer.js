@@ -38,6 +38,8 @@ export function todoItem(state = {}, action) {
     switch (action.type) {
         case todoConstants.TODOADD:
             return action.payload;
+        case todoConstants.TODOUPDATE:
+            return action.payload;
         default:
             return state;
     }

@@ -3,7 +3,6 @@ import Form from './components/Form'
 import TodoList from './components/TodoList'
 import { BrowserRouter, Route } from 'react-router-dom'
 import TodoDetail from './components/TodoDetail'
-import Todo from './components/Todo'
 
 function App() {
   return (
