@@ -6,6 +6,7 @@ export const rootReducer = combineReducers({
     todos,
     todoItem,
     search,
+    detail,
 })
 
 export function todos(state = [], action) {
@@ -19,11 +20,15 @@ export function todos(state = [], action) {
         case todoConstants.TODOCOMPLETE:
             return action.payload;
         case todoConstants.TODOSEARCH:
-                newState = state.filter(todo => {
+            newState = state.filter(todo => {
                 if (action.payload === "") return todo;
                 else if (todo.title.toLowerCase().includes(action.payload.toLowerCase())) return todo;
-                return "";});
-                console.log("reducer: ", newState);
+                return "";
+            });
+            console.log("reducer: ", newState);
+            return newState;
+        case todoConstants.TODODETAIL:
+            newState = state.filter(item => item.id === action.payload)
             return newState;
         default:
             return state;
@@ -41,6 +46,15 @@ export function todoItem(state = {}, action) {
 export function search(state = [], action) {
     switch (action.type) {
         case todoConstants.TODOSEARCH:
+            return action.payload;
+        default:
+            return state;
+    }
+}
+
+export function detail(state = {}, action) {
+    switch (action.type) {
+        case todoConstants.TODODETAIL:
             return action.payload;
         default:
             return state;

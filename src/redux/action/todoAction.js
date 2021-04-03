@@ -4,6 +4,7 @@ export const todoConstants = {
     TODODELETE: 'TODO_DELETE',
     TODOCOMPLETE: 'TODO_COMPLETE',
     TODOSEARCH: 'TODO_SEARCH',
+    TODODETAIL: 'TODO_DETAIL',
 }
 
 export const todoActions = {
@@ -12,6 +13,7 @@ export const todoActions = {
     deleteTodoItem,
     completeTodoItem,
     searchTodoList,
+    todoDetail,
 }
 
 const URL = "http://localhost:4000/todos/";
@@ -34,6 +36,10 @@ function completeTodoItemSuccess(item) {
 
 function searchTodoList(todos) {
     return { type: todoConstants.TODOSEARCH, payload: todos }
+}
+
+function todoDetail(todoId) {
+    return { type: todoConstants.TODODETAIL, payload: todoId}
 }
 
 function getTodoList() {

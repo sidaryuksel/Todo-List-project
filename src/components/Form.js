@@ -19,12 +19,18 @@ class Form extends Component {
     }
 
     handleInputText = (e) => {
+
         var date = new Date();
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
-        console.log(todayDate);
+        console.log(e.target);
+
+        const title = e.target.type === "title" ? e.target.value : this.state.title;
+        const message = e.target.type === "message" ? e.target.value : this.state.title;
+console.log("title", title);
+console.log("message", message);
         const todoItem = {
-            title: e.target.value,
-            message: e.target.value,
+            title: title,
+            message: message,
             createdDate: todayDate,
             priority: this.state.priority,
             completed: !this.state.todoItem.completed

@@ -7,24 +7,15 @@ import Form from './Form'
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            length: 0
-        }
         this.props.getList();
     }
 
     handleClick = (e) => {
-        this.setState({
-            length: this.props.todos.length
-        })
-        return (
-            <div>
-                <Form />
-            </div>)
+        this.props.history.push('/tododetail');
     }
 
     render() {
-        console.log("todo listesi", this.props.todos);
+        console.log("todolist props", this.props);
         return (
             <div className="todo-container">
                 <ul className="todo-list">
@@ -46,4 +37,4 @@ const stateToProps = (state) => ({
 const dispatchToProps = {
     getList: todoActions.getTodoList
 }
-export default connect(stateToProps, dispatchToProps)(TodoList);
+export default connect(stateToProps, dispatchToProps) (TodoList);

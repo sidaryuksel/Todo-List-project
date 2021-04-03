@@ -1,15 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { todoActions } from '../redux/action/todoAction'
-import TodoDetail from './TodoDetail'
+import {withRouter} from 'react-router-dom'
 
 class Todo extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            todoItem: {},
-        }
-    }
 
     handleDelete = (e) => {
         e.preventDefault();
@@ -24,11 +18,8 @@ class Todo extends Component {
     }
 
     handleClick = (e) => {
-        console.log("detai,l",e.target.value);
-        this.setState({
-            todoItem: e.target,
-        }
-        )
+        this.props.todoDetail(e.target.value);
+        this.props.history.push('/tododetail');
     }
 
     render() {
@@ -48,13 +39,15 @@ class Todo extends Component {
 }
 
 const stateToProps = (state) => ({
-    todoList: state.todos
+    todoList: state.todos,
+    detail: state.detail,
 })
 
 const dispatchToProps = {
     deleteItem: todoActions.deleteTodoItem,
     completedTodo: todoActions.completeTodoItem,
-    getTodoList: todoActions.getTodoList
+    getTodoList: todoActions.getTodoList,
+    todoDetail: todoActions.todoDetail,
 }
 
-export default connect(stateToProps, dispatchToProps)(Todo);
+export default connect(stateToProps, dispatchToProps)(withRouter(Todo));
