@@ -27,9 +27,9 @@ class TodoDetail extends Component {
     }
 
     handleInputText = (e) => {
-        console.log("todo detay handle", e.target.name);
+        console.log("todo detay handle", e.target);
         //find which value will be changed
-        /*if (e.target.name === "title") {
+        if (e.target.name === "title") {
             this.setState({
                 todoItem: {
                     title: e.target.value
@@ -48,13 +48,7 @@ class TodoDetail extends Component {
                     priority: e.target.value
                 }
             })
-        }*/
-        const {name, value} = e.target;
-        this.setState({
-            todoItem: {
-                [name]: value
-            }
-        })
+        }
         var date = new Date();
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
         this.setState({

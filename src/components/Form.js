@@ -22,41 +22,37 @@ class Form extends Component {
 
         var date = new Date();
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
-        console.log(e.target);
+        console.log("handle input",e.target.type);
 
-        const title = e.target.type === "title" ? e.target.value : this.state.title;
-        const message = e.target.type === "message" ? e.target.value : this.state.title;
-console.log("title", title);
-console.log("message", message);
-        const todoItem = {
+        const title = e.target.name === "title" ? e.target.value : this.state.todoItem.title;
+        const message = e.target.name === "message" ? e.target.value : this.state.todoItem.message;
+        const priority = e.target.name === "priority" ? e.target.value : this.state.todoItem.priority;
+;
+        const todoItemOb = {
             title: title,
             message: message,
             createdDate: todayDate,
-            priority: this.state.priority,
-            completed: !this.state.todoItem.completed
+            priority: priority,
         }
+        console.log("todoItem", todoItemOb.priority)
         this.setState({
-            todoItem: todoItem
+            todoItem: {
+                title: todoItemOb.title,
+                message: todoItemOb.message,
+                createdDate: todoItemOb.createdDate,
+                priority: todoItemOb.priority,
+            }
         })
         console.log("state: ", this.state.todoItem)
     }
 
-    handleChange = (e) => {
-        this.setState({priority: e.target.value});
-    }
-
     handleSubmitClick = (e) => {
         e.preventDefault();
+        console.log("submit state",this.state)
         const todoItem = this.state.todoItem;
         console.log("todoıtem: ", todoItem);
-        if (todoItem.title !== "") {
+        if (todoItem.title !== "" && todoItem.message !== "") {
             this.props.addTodoItem(todoItem);
-            this.setState({
-                title: "",
-                message: "",
-                completed: false,
-                createdDate: new Date(),
-            });
         }
     }
 
@@ -64,10 +60,10 @@ console.log("message", message);
         return (
             <div>
                 <form>
-                    <input placeholder="Title..." type="title" className="todo-input" onChange={this.handleInputText} />
-                    <input placeholder="Message..." type="message" className="todo-input-msg" onChange={this.handleInputText} />
+                    <input placeholder="Title..." name="title" className="todo-input" onChange={this.handleInputText} />
+                    <input placeholder="Message..." name="message" className="todo-input-msg" onChange={this.handleInputText} />
                     <div className="select">
-                        <select name="todos" className="filter-todo" onChange={this.handleChange}>
+                        <select name="priority" className="filter-todo" onChange={this.handleInputText}>
                             <option value="high">High</option>
                             <option value="medium">Medium</option>
                             <option value="low">Low</option>
