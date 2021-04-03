@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { todoActions } from '../redux/action/todoAction';
 import { todoItem } from '../redux/reducer/todoReducer';
+import {Link} from 'react-router-dom'
 
 class TodoDetail extends Component {
     constructor(props) {
@@ -28,32 +29,24 @@ class TodoDetail extends Component {
 
     handleInputText = (e) => {
         console.log("todo detay handle", e.target);
+        let title, message, priority;
         //find which value will be changed
         if (e.target.name === "title") {
-            this.setState({
-                todoItem: {
-                    title: e.target.value
-                }
-            })
+                    title = e.target.value;
         } else if (e.target.name === "message") {
-            this.setState({
-                todoItem: {
-                    message: e.target.value
-                }
-            })
+                    message = e.target.value;
         } else if (e.target.name === "priority") {
             console.log("priori", e.target.value)
-            this.setState({
-                todoItem: {
-                    priority: e.target.value
-                }
-            })
+                    priority = e.target.value
         }
         var date = new Date();
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
         this.setState({
             todoItem: {
-                modifiedDate: todayDate
+                title: title,
+                message: message,
+                priority: priority,
+                modifiedDate: todayDate,
             }
         });
         console.log("heyo", this.state);
@@ -101,7 +94,7 @@ class TodoDetail extends Component {
                     <button className="todo-button" onSubmit={this.handleSubmit}>Update</button>
                 </form>
                 <form>
-                    <button className="todo-button" onSubmit={this.handleSubmitBack}>Back to form</button>
+                    <Link to='/form'>Back to form</Link>
                 </form>
             </div>
         )

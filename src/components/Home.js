@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 
 class Home extends Component {
-    handleSubmit = () => {
-        this.props.history.push('/form');
-    }
     render() {
         return (
             <form>
-                <button className="todo-button" onSubmit={this.handleSubmit}>Go to form</button>
-            </form>
+                <Link to='/form'>Go to form</Link>
+           </form>
         )
     }
 }
