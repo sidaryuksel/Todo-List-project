@@ -119,6 +119,7 @@ function completeTodoItem(todo) {
         }).then(response => response.json())
             .then(item => {
                 dispatch(completeTodoItemSuccess(item));
+                dispatch(getTodoList(item));
             })
             .catch(handleError)
     }

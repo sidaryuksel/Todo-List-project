@@ -39,15 +39,15 @@ class TodoDetail extends Component {
             }
         });
         console.log("heyo", this.state);
+        console.log("update prop", this.props);
     }
 
     handleSubmit = (e) => {
+        e.preventDefault();
         const todoUpdateItem = this.state.todoItem;
         console.log("update item", todoUpdateItem);
         debugger;
         this.props.updateTodoItem(todoUpdateItem)
-
-
     }
 
     render() {
@@ -85,8 +85,7 @@ class TodoDetail extends Component {
                     <Link to='/form'>Back to form</Link>
                 </form>
             </div>
-        )
-    }
+        )}
 }
 
 const stateToProps = (state) => ({

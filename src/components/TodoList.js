@@ -9,16 +9,13 @@ class TodoList extends Component {
         this.props.getList();
     }
 
-    handleClick = (e) => {
-        this.props.history.push('/tododetail');
-    }
-
     render() {
+        const todos = this.props.todos || {};
         console.log("todolist props", this.props);
         return (
             <div className="todo-container">
                 <ul className="todo-list">
-                    {this.props.todos.map(todo => (
+                    {todos.map(todo => (
                         <Todo value={todo} key={todo.id} id={todo.id} />
                     ))
                     }

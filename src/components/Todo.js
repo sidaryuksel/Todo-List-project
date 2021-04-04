@@ -30,7 +30,6 @@ class Todo extends Component {
                     </li>
                 <button className="complete-btn" onClick={this.handleComplete}><i className="fas fa-check"></i></button>
                 <button className="trash-btn" onClick={this.handleDelete}><i className="fas fa-trash"></i></button>
-                
             </div>
         )
     }
