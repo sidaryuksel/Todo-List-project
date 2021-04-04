@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { todoActions } from '../redux/action/todoAction';
 import Search from './Search';
+import TodoList from './TodoList';
 
 class Form extends Component {
     constructor(props) {
@@ -47,7 +48,6 @@ class Form extends Component {
     }
 
     handleSubmitClick = (e) => {
-        e.preventDefault();
         console.log("submit state",this.state)
         const todoItem = this.state.todoItem;
         console.log("todoıtem: ", todoItem);
@@ -77,6 +77,7 @@ class Form extends Component {
                     <Search />
                 </form>
                 <h3 className="todo-header" >Select Title</h3>
+                <TodoList/>
             </div>
         )
     }

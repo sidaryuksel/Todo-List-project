@@ -69,23 +69,26 @@ function addTodoItem(todo) {
             .then(item => {
                 dispatch(addTodoItemSuccess(item));
             })
+            .then(() => {
+                dispatch(getTodoList());
+            })
             .catch(handleError)
     }
 }
 
-function updateTodoItem(todoUpdatedItem) {
-    console.log("updatetodo: ", todoUpdatedItem)
-    debugger;
-
+function updateTodoItem(id, todoItem) {
+    console.log("updatetodo: ", todoItem)
     return function (dispatch) {
-        return fetch(URL + todoUpdatedItem.id, {
+        return fetch(URL + id,{
             method: 'PUT',
             headers: { "content-type": "application/json" },
-            body: JSON.stringify(todoUpdatedItem)
+            body: JSON.stringify(todoItem)
         }).then(response => response.json())
             .then(item => {
                 dispatch(updateTodoItemSuccess(item));
-                dispatch(getTodoList(item));
+            })
+            .then(() => {
+                dispatch(getTodoList());
             })
             .catch(handleError)
     }
@@ -119,14 +122,13 @@ function completeTodoItem(todo) {
         }).then(response => response.json())
             .then(item => {
                 dispatch(completeTodoItemSuccess(item));
-                dispatch(getTodoList(item));
+            })
+            .then(() => {
+                dispatch(getTodoList());
             })
             .catch(handleError)
     }
 }
-
-
-
 
 function handleError(error) {
     console.error(error);

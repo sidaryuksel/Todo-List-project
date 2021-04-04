@@ -6,19 +6,30 @@ import { Link } from 'react-router-dom'
 class TodoDetail extends Component {
     constructor(props) {
         super(props);
-        const detailItem = this.props.todos.find(item => item.id === this.props.detail);
-        console.log("detailItem", detailItem)
+        const detailItem = this.props.todos;
+        let detail = detailItem[0];
 
+        if (detail == null) {
+            detail = {
+                id: "",
+                title: "",
+                message: "",
+                priority: "",
+            }
+        }
         this.state = {
             todoItem: {
-                title: detailItem != null ? detailItem.title : "",
-                message: detailItem != null ? detailItem.message : "",
-                priority: detailItem != null ? detailItem.priority : "",
+                id: detail.id,
+                title: detail.title,
+                message: detail.message,
+                priority: detail.priority,
                 modifiedDate: "",
             },
         }
 
         console.log("detail consturctor", this.state)
+        console.log("detail props", this.props)
+
     }
 
     handleInputText = (e) => {
@@ -32,6 +43,7 @@ class TodoDetail extends Component {
         var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
         this.setState({
             todoItem: {
+                ...this.state.todoItem,
                 title: titleUp,
                 message: messageUp,
                 modifiedDate: todayDate,
@@ -42,15 +54,14 @@ class TodoDetail extends Component {
         console.log("update prop", this.props);
     }
 
-    handleSubmit = (e) => {
+    handleClick = (e) => {
         e.preventDefault();
-        const todoUpdateItem = this.state.todoItem;
-        console.log("update item", todoUpdateItem);
-        debugger;
-        this.props.updateTodoItem(todoUpdateItem)
+        console.log("update stae", this.state.todoItem)
+        this.props.updateTodoItem(this.state.todoItem.id, this.state.todoItem);
     }
 
     render() {
+
         const { title, message } = this.state.todoItem != null ? this.state.todoItem : "";
         console.log("title", title);
 
@@ -72,14 +83,14 @@ class TodoDetail extends Component {
                     <h5 className="message">Priority</h5>
                 </header>
                 <form>
-                    <select name="priority" className="filter-todo" onChange={this.handleInputText}>
+                    <select name="priority" className="filter-todo" onClick={this.handleInputText}>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>
                     </select>
                 </form>
                 <form>
-                    <button className="todo-button" onSubmit={this.handleSubmit}>Update</button>
+                    <button className="todo-button" onClick={this.handleClick}>Update</button>
                 </form>
                 <form>
                     <Link to='/form'>Back to form</Link>
