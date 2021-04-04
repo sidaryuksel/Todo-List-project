@@ -18,7 +18,6 @@ class TodoList extends Component {
                         <Todo value={todo} key={todo.id} id={todo.id} />
                     ))
                     }
-
                 </ul>
             </div>
         )

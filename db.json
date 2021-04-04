@@ -5,7 +5,8 @@
       "title": "Sed mattis nibh non leo egestas",
       "message": "Sed mattis nibh non leo egestas finibus. Etiam eleifend aliquet viverra. Proin elementum est sed cursus mattis. Nam sit amet felis nisl. Sed efficitur imperdiet lorem eget finibus. Integer tristique sapien et ipsum mattis, commodo feugiat loremhendrerit. Etiam erat nulla, scelerisque nec viverra sit amet, dapibus in diam. Nunc sit amet felis vitae est iaculis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec dictum orci sit amet placerat lobortis. Vestibulum arcu nulla, fringilla ut ullamcorper eu, blandit id erat.",
       "priority": "high",
-      "modifiedDate": ""
+      "modifiedDate": "",
+      "completed": true
     },
     {
       "id": 27,
@@ -13,14 +14,7 @@
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id hendrerit mi. Curabitur vulputate pulvinar eros, vitae placerat nibh condimentum id. Duis blandit rhoncus enim. Duis ultrices turpis sed ligula pulvinar lobortis. Praesent vestibulum massa quis lacus auctor sollicitudin. Nam cursus erat, vel rutrum magna feugiat vel. Etiam tincidunt, quam sit amet bibendum dapibus, tellus erat tempor ipsum, in semper dolor urna non augue.",
       "priority": "low",
       "modifiedDate": "4/4/2021",
-      "completed": true
-    },
-    {
-      "id": 28,
-      "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id hendrerit mi. Curabitur vulputate pulvinar eros, vitae placerat nibh condimentum id. Duis blandit rhoncus enim. Duis ultrices turpis sed ligula pulvinar lobortis. Praesent vestibulum massa quis lacus auctor sollicitudin. ",
-      "priority": "medium",
-      "modifiedDate": "0/4/2021"
+      "completed": false
     },
     {
       "title": "Phasellus aliquam enim vel efficitur pellentesque. ",
@@ -35,7 +29,8 @@
       "message": "Praesent eu odio libero. Phasellus sodales justo sed dictum viverra. Morbi commodo justo sed orci commodo faucibus. Praesent sit amet volutpat lacus, ut imperdiet lacus. Vestibulum tincidunt vehicula tincidunt. Pellentesque aliquam est ligula, in fringilla arcu mollis vitae. Nullam ac mi quam. Donec sed mi malesuada, blandit ex eu, volutpat lectus. Aliquam congue sit amet felis ut hendrerit.",
       "createdDate": "3/0/2021",
       "priority": "low",
-      "id": 30
+      "id": 30,
+      "completed": true
     },
     {
       "title": "Duis sodales condimentum ipsum at mattis. In egestas magna nec quam tempus pretium. ",

@@ -115,13 +115,16 @@ function completeTodoItem(todo) {
     console.log("todoCompleted", todoCompleted);
     console.log("complete: ", todo)
     return function (dispatch) {
-        return fetch(URL + todoCompleted.id, {
+        return fetch(URL + todo.id, {
             method: 'PUT',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(todoCompleted)
         }).then(response => response.json())
             .then(item => {
                 dispatch(completeTodoItemSuccess(item));
+                setInterval(() => {
+                    
+                }, 2000);
             })
             .then(() => {
                 dispatch(getTodoList());

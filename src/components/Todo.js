@@ -12,7 +12,10 @@ class Todo extends Component {
     }
 
     handleComplete = (e) => {
-        this.props.completedTodo(this.props.value);
+        e.preventDefault();
+        console.log("complewtevalue: ", this.props.value);
+            this.props.completedTodo(this.props.value);
+            this.props.history.push('/');
     }
 
     handleClick = (e) => {
