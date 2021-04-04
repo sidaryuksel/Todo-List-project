@@ -40,7 +40,8 @@ class TodoDetail extends Component {
         const priorityUp = e.target.name === "priority" ? e.target.value : this.state.todoItem.priority;
 
         var date = new Date();
-        var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
+        var todayDate = date.getDay() + '/' + (date.getMonth() + 1)+ '/' + date.getFullYear();
+        console.log("todaydate", )
         this.setState({
             todoItem: {
                 ...this.state.todoItem,
@@ -62,7 +63,7 @@ class TodoDetail extends Component {
 
     render() {
 
-        const { title, message } = this.state.todoItem != null ? this.state.todoItem : "";
+        const { title, message,priority } = this.state.todoItem != null ? this.state.todoItem : "";
         console.log("title", title);
 
         return (
@@ -83,7 +84,7 @@ class TodoDetail extends Component {
                     <h5 className="message">Priority</h5>
                 </header>
                 <form>
-                    <select name="priority" className="filter-todo" onClick={this.handleInputText}>
+                    <select name="priority" className="filter-todo" onChange={this.handleInputText} value={priority}>
                         <option value="high">High</option>
                         <option value="medium">Medium</option>
                         <option value="low">Low</option>

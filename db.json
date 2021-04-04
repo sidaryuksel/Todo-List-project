@@ -13,7 +13,8 @@
       "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id hendrerit mi. Curabitur vulputate pulvinar eros, vitae placerat nibh condimentum id. Duis blandit rhoncus enim. Duis ultrices turpis sed ligula pulvinar lobortis. Praesent vestibulum massa quis lacus auctor sollicitudin. Nam fringilla cursus erat, vel rutrum magna feugiat vel. Etiam tincidunt, quam sit amet bibendum dapibus, tellus erat tempor ipsum, in semper dolor urna non augue.",
       "createdDate": "3/0/2021",
       "priority": "medium",
-      "id": 27
+      "id": 27,
+      "completed": true
     },
     {
       "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
