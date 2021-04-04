@@ -60,45 +60,50 @@ class TodoDetail extends Component {
         e.preventDefault();
         console.log("update stae", this.state.todoItem)
         this.props.updateTodoItem(this.state.todoItem.id, this.state.todoItem);
-
+        this.setState({toggle: !this.state.toggle})
     }
 
     render() {
-        const { title, message,priority } = this.state.todoItem != null ? this.state.todoItem : "";
+        const { title, message, priority } = this.state.todoItem != null ? this.state.todoItem : "";
         console.log("title", title);
 
         return (
             <div>
-                <header>
-                    <h5 className="message">Title</h5>
-                </header>
-                <form>
-                    <textarea type="title" name="title" className="todo-text" onChange={this.handleInputText} value={title} />
-                </form>
-                <header>
-                    <h5 className="message">Message</h5>
-                </header>
-                <form>
-                    <textarea type="message" name="message" className="todo-text-message" onChange={this.handleInputText} value={message} />
-                </form>
-                <header>
-                    <h5 className="message">Priority</h5>
-                </header>
-                <form>
-                    <select name="priority" className="filter-todo" onChange={this.handleInputText} value={priority}>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
-                </form>
-                <form>
-                    <button className="todo-button" onClick={this.handleClick}>Update</button>
-                </form>
-                <form>
-                    <Link to='/form'>Back to form</Link>
-                </form>
+                {this.state.toggle && <div>
+                    <header>
+                        <h5 className="message">Title</h5>
+                    </header>
+                    <form>
+                        <textarea type="title" name="title" className="todo-text" onChange={this.handleInputText} value={title} />
+                    </form>
+                    <header>
+                        <h5 className="message">Message</h5>
+                    </header>
+                    <form>
+                        <textarea type="message" name="message" className="todo-text-message" onChange={this.handleInputText} value={message} />
+                    </form>
+                    <header>
+                        <h5 className="message">Priority</h5>
+                    </header>
+                    <form>
+                        <select name="priority" className="filter-todo" onChange={this.handleInputText} value={priority}>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </form>
+                    <form>
+                        <button className="todo-button" onClick={this.handleClick}>Update</button>
+                    </form>
+                    <form>
+                        <Link to='/form'>Back to form</Link>
+                    </form>
+                </div>
+                }
+                {!this.state.toggle && this.props.history.push('/form')}
             </div>
-        )}
+        )
+    }
 }
 
 const stateToProps = (state) => ({
