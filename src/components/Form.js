@@ -22,7 +22,7 @@ class Form extends Component {
     handleInputText = (e) => {
 
         var date = new Date();
-        var todayDate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear();
+        var todayDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
         console.log("handle input",e.target.type);
 
         const title = e.target.name === "title" ? e.target.value : this.state.todoItem.title;

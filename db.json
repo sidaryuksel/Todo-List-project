@@ -1,12 +1,11 @@
 {
   "todos": [
     {
-      "title": "Sed mattis nibh non leo egestas finibus",
-      "completed": true,
       "id": 26,
-      "message": "Sed mattis nibh non leo egestas finibus. Etiam eleifend aliquet viverra. Proin elementum est sed cursus mattis. Nam sit amet felis nisl. Sed efficitur imperdiet lorem eget finibus. Integer tristique sapien et ipsum mattis, commodo feugiat lorem hendrerit. Etiam erat nulla, scelerisque nec viverra sit amet, dapibus in diam. Nunc sit amet felis vitae est iaculis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec dictum orci sit amet placerat lobortis. Vestibulum arcu nulla, fringilla ut ullamcorper eu, blandit id erat. Vivamus magna velit, eleifend ac mi id, feugiat ornare orci.",
-      "createdDate": "",
-      "priority": "Low"
+      "title": "Sed mattis nibh non leo egestas",
+      "message": "Sed mattis nibh non leo egestas finibus. Etiam eleifend aliquet viverra. Proin elementum est sed cursus mattis. Nam sit amet felis nisl. Sed efficitur imperdiet lorem eget finibus. Integer tristique sapien et ipsum mattis, commodo feugiat lorem hendrerit. Etiam erat nulla, scelerisque nec viverra sit amet, dapibus in diam. Nunc sit amet felis vitae est iaculis euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec dictum orci sit amet placerat lobortis. Vestibulum arcu nulla, fringilla ut ullamcorper eu, blandit id erat.",
+      "priority": "low",
+      "modifiedDate": "0/4/2021"
     },
     {
       "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
@@ -17,11 +16,11 @@
       "completed": true
     },
     {
+      "id": 28,
       "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id hendrerit mi. Curabitur vulputate pulvinar eros, vitae placerat nibh condimentum id. Duis blandit rhoncus enim. Duis ultrices turpis sed ligula pulvinar lobortis. Praesent vestibulum massa quis lacus auctor sollicitudin. Nam fringilla cursus erat, vel rutrum magna feugiat vel. Etiam tincidunt, quam sit amet bibendum dapibus, tellus erat tempor ipsum, in semper dolor urna non augue.",
-      "createdDate": "3/0/2021",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id hendrerit mi. Curabitur vulputate pulvinar eros, vitae placerat nibh condimentum id. Duis blandit rhoncus enim. Duis ultrices turpis sed ligula pulvinar lobortis. Praesent vestibulum massa quis lacus auctor sollicitudin. ",
       "priority": "medium",
-      "id": 28
+      "modifiedDate": "0/4/2021"
     },
     {
       "title": "Phasellus aliquam enim vel efficitur pellentesque. ",

@@ -25,6 +25,7 @@ class TodoDetail extends Component {
                 priority: detail.priority,
                 modifiedDate: "",
             },
+            toggle: true,
         }
 
         console.log("detail consturctor", this.state)
@@ -40,8 +41,8 @@ class TodoDetail extends Component {
         const priorityUp = e.target.name === "priority" ? e.target.value : this.state.todoItem.priority;
 
         var date = new Date();
-        var todayDate = date.getDay() + '/' + (date.getMonth() + 1)+ '/' + date.getFullYear();
-        console.log("todaydate", )
+        var todayDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' + date.getFullYear();
+        console.log("todaydate", todayDate)
         this.setState({
             todoItem: {
                 ...this.state.todoItem,
@@ -59,10 +60,10 @@ class TodoDetail extends Component {
         e.preventDefault();
         console.log("update stae", this.state.todoItem)
         this.props.updateTodoItem(this.state.todoItem.id, this.state.todoItem);
+
     }
 
     render() {
-
         const { title, message,priority } = this.state.todoItem != null ? this.state.todoItem : "";
         console.log("title", title);
 

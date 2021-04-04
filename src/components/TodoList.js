@@ -4,8 +4,7 @@ import { todoActions } from '../redux/action/todoAction';
 import Todo from './Todo';
 
 class TodoList extends Component {
-    constructor(props) {
-        super(props);
+    componentDidMount(){
         this.props.getList();
     }
 
